@@ -1,0 +1,18 @@
+@font-face {
+	font-family: "personalfont";
+	src: url('assets/personalfont');
+}
+
+body {
+	margin: 42px;
+	font-family: Roboto;
+}
+
+h1 {
+	font-family: "personalfont", Gadget, sans-serif;
+	font-size: 3.5em;
+}
+
+p {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
