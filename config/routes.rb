@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'tasks/show'
+
+  get 'tasks/new'
+
+  get 'tasks/edit'
+
   # get 'pages/about'  = localhost:3000/pages/about 
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"

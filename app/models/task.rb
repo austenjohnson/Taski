@@ -13,6 +13,6 @@ class Task < ActiveRecord::Base
     project = Project. find(self.project_id)
     count_of_completed_tasks = project.tasks.completed.count
     count_of_total_tasks = project.tasks.count
-    project.update!(percent_complete: Counter.calculate_percent_complete(count_of_completed_tasks, count_of_total_tasks))
+            project.update!(percent_complete: Counter.calculate_percent_complete(count_of_completed_tasks, count_of_total_tasks))
   end
 end
