@@ -1,5 +1,7 @@
-class TasksController < ApplicationController
+class Projects::TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :new, :create, :edit, :update, :destroy]
+
   def show
 
   end
@@ -14,23 +16,27 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.project_id = @project.id
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: "Task was created successfully!"}
+        format.html { redirect_to project_url(@task.project_id), notice: "Task was created successfully!"}
         format.json { render :show, status: :created, location: @task }
       else
-        format.html { render :new}
+        format.html { render :new }
         format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
 
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: "Task was updated successfully!"}
+        format.html { redirect_to project_url(@task.project_id), notice: "Task was updated successfully!"}
         format.json { render :show, status: :created, location: @task }
       else
-        format.html { render :new}
+        format.html { render :new }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
@@ -47,10 +53,14 @@ class TasksController < ApplicationController
   private
 
   def set_task
-    # TODO
+    @task = Task.find(params[:id])
+  end
+
+  def set_project
+    @project = Project.find(params[:project_id])
   end
 
   def task_params
-    # TODO
+    params.require(:task).permit(:title, :description, :project_id, :completed, :task_file)
   end
 end

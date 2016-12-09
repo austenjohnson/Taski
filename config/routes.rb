@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'tasks/show'
 
-  get 'tasks/new'
-
-  get 'tasks/edit'
 
   # get 'pages/about'  = localhost:3000/pages/about 
   get "about", to: "pages#about"
@@ -12,7 +8,10 @@ Rails.application.routes.draw do
   get "blog", to: redirect("http://www.google.com")
 
   # custom route created to localhost:3000/about 
-  resources :projects
+  resources :projects do
+    resources :tasks, except: [:index], controller: 'projects/tasks'
+  end
+
   root "pages#home"
 
   get "*path", to: redirect("pages#error")
