@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"
 
-  get "blog", to: redirect("https://www.austenstaski-taski.herokuapp.com")
+  get "blog", to: redirect("www.austenstaski-taski.herokuapp.com")
 
   # custom route created to localhost:3000/about 
   resources :projects do
