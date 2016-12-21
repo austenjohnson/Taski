@@ -1,5 +1,6 @@
+<% if current_user %>
 <% @projects.each do |project| %>
-
 	<p><strong><%= project.title %></strong> - <em><%= project.description %><em> <%= " | #{project.percent_complete}" if project.percent_complete %> <!-- <%= project.percent_complete %> Will print -nil if there is no value. How it's coded now will not print it if it's blank --> </p>
+<% end %>
 <% end %>
 <!-- The <%= %> prints to page but <% %> does not -->
