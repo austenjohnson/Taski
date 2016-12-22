@@ -4,13 +4,13 @@
 }
 
 * {
-  background-color: #cccdce;
+  background-color: #f2f2f2;
   text-align: center;
 }
 
 body {
 	margin: 42px;
-	font-family: Roboto;
+	font-family: sans-serif;
 }
 
 h1 {
@@ -20,4 +20,17 @@ h1 {
 
 p {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+#navlink, #navlink:active,  {
+  text-decoration: none;
+  color: #872727;
+  #navlink:hover {
+    cursor: crosshair;
+  }
+}
+
+#link, #link:active,  {
+  text-decoration: none;
+  color: #3c3d3c;
 }

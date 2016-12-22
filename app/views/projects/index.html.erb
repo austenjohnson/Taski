@@ -15,12 +15,12 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.title %></td>
-        <td><%= project.description %></td>
-        <td><%= project.percent_complete %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= project.title %> | </td>
+        <td><%= project.description %> | </td>
+        <td><%= project.percent_complete %> | </td>
+        <td><%= link_to 'Show', project, id: "link" %> | </td>
+        <td><%= link_to 'Edit', edit_project_path(project), id: "link" %> | </td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, id: "link" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+<%= link_to 'New Project', new_project_path, id: "link" %>
